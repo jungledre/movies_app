@@ -1,0 +1,25 @@
+{
+  "name": "movies_app",
+  "version": "0.0.0",
+  "description": "movies_app ==========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jungledre/movies_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jungledre/movies_app/issues"
+  },
+  "homepage": "https://github.com/jungledre/movies_app",
+  "dependencies": {
+    "body-parser": "^1.9.3",
+    "ejs": "^1.0.0",
+    "express": "^4.10.4",
+    "request": "^2.49.0"
+  }
+}

@@ -1,0 +1,10 @@
+<% include ../header %>
+
+<h1>Search Results</h1>
+<% for (var i = 0; i < Search.length; i++) { %>
+  <li>
+      <a href='/movies/<%= Search[i].imdbID %>'> <%= Search[i].Title %> (<%= Search[i].Year %>) </a>
+  </li>
+<% } %>
+
+<% include ../footer %>
