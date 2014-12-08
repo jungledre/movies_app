@@ -1,18 +1,22 @@
 <% include ../header %>
 
-<button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Add To Watchlist
-</button>
-
-<div class="container" id="chunk">
+<div class="container" id="movie-item">
     <div class="row" >
         <div class="col-md-6">
             <ul>
                 <li><%= Title %>  (<%= Year %>)</li><br>
-                <li>Director: <%= Director %></li><br>
-                <li>Synopsis: <%= Plot %></li><br>
+                <li>Directed by: <%= Director %></li><br>
+                <li>Synopsis: <br> <%= Plot %></li><br>
                 <li>OFMG Rating: <%= tomatoMeter %>/100</li>
             </ul>
+            <form action="/movies/added" method="post" id="addWatch">
+                <input type="hidden" name="code" value="<%= imdbID %>">
+                <input type="hidden" name="title" value="<%= Title %>">
+                <input type="hidden" name="year" value="<%= Year %>">
+                <button type="button" class="btn btn-default btn-lg">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Add To Watchlist
+                </button>
+            </form>
         </div>
         <div class="col-md-6">
             <img src= <%= Poster %>>

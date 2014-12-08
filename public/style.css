@@ -15,7 +15,6 @@ body {
   font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
   text-transform: uppercase;
 }
-}
 
 ul {
   list-style-type: none;
@@ -35,10 +34,7 @@ a:active {
 
 #chunk {
   background-color: rgba(255,255,255,.65);
-  border-color: white;
-
-/*    background: none;
-border: 10px solid #ffffff;*/
+  border: 10px solid white;
 }
 
 #movie-item {
