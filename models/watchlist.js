@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Watchlist = sequelize.define("Watchlist", {
-    code: DataTypes.INTEGER,
+    code: DataTypes.STRING,
     title: DataTypes.STRING,
     year: DataTypes.STRING
   }, {

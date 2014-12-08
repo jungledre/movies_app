@@ -30,26 +30,22 @@ app.get("/movies/search/", function(req, res){
     });
 });
 
-// Display Watch List
-app.get("/movies/watchlist", function(req,res){
-    console.log("watch get")
-    db.Watchlist.findAll().done(function(Watchlist) {
-        console.log("watch get2")
-        res.render("movies/watchlist")
-    });
-});
-
-
 // Add to Watch List
 app.post("/movies/added", function(req,res) {
-    console.log("watch post")
-    db.Watchlist.findOrCreate({code: req.body.imdb_code, title: req.body.title, year: req.body.year })
-    .done(function(Watchlist) {
-        console.log("watch post 2")
-        res.render("movies/added");
+    db.Watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
+    .spread(function(Watchlist, created) {
+        // res.send(Watchlist);
+        res.render("movies/added", {Watchlist: Watchlist});
     });
 });
 
+// Display Watch List
+app.get("/movies/watchlist", function(req,res){
+    db.Watchlist.findAll().done(function(err, Watchlist) {
+        console.log("watch get2")
+        res.render("movies/watchlist", {Watchlist: Watchlist})
+    });
+});
 
 // Specific movie info
 app.get("/movies/:imdb", function(req, res){
@@ -59,7 +55,7 @@ app.get("/movies/:imdb", function(req, res){
     request("http://www.omdbapi.com/?i=" + id + "&tomatoes=true&", function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var stuff = JSON.parse(body);
-            console.log(stuff["Search"])
+            console.log(stuff)
             res.render("movies/movies", stuff)
         }
         else {
