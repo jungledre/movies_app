@@ -1,16 +1,22 @@
 <% include ../header %>
-<div class=container>
-    <div class="col-md-4">
-    <ul>
-        <li>Title: <%= Title %></li>
-        <li>Year: <%= Year %></li>
-        <li>Genre: <%= Genre %></li>
-        <li>Actors: <%= Actors %></li>
-        <li>Rotten Tomatoes: <%= tomatoMeter %></li>
-    </ul>
-    </div>
-    <div class="col-md-4">
-    <img src= <%= Poster %>>
+
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Add To Watchlist
+</button>
+
+<div class="container" id="chunk">
+    <div class="row" >
+        <div class="col-md-6">
+            <ul>
+                <li><%= Title %>  (<%= Year %>)</li><br>
+                <li>Director: <%= Director %></li><br>
+                <li>Synopsis: <%= Plot %></li><br>
+                <li>OFMG Rating: <%= tomatoMeter %>/100</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <img src= <%= Poster %>>
+        </div>
     </div>
 </div>
 

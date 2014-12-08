@@ -43,4 +43,7 @@ app.get('/movies/:imdb', function(req, res){
 
 })
 
-app.listen(3000);
+app.listen(3000, function(){
+    console.log("DEATH RACE 3000!")
+}
+);

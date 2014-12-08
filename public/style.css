@@ -1,7 +1,57 @@
-ul {
-    list-style-type: none;
+* {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
 body {
-    background-color: #e74c3c;
+  background: url("http://s3.amazonaws.com/auteurs_production/images/film/house/w856/house.jpg");
+  /*  background: url("http://s3.amazonaws.com/auteurs_production/images/film/death-race-2000/w856/death-race-2000.jpg");*/
+  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
+  text-transform: uppercase;
+}
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:link, a:visited {
+  color: #a2a2a2;
+}
+
+a:hover {
+  color: #009C7C;
+}
+
+a:active {
+  color: #0000FF;
+}
+
+#chunk {
+  background-color: rgba(255,255,255,.65);
+  border-color: white;
+
+/*    background: none;
+border: 10px solid #ffffff;*/
+}
+
+#movie-item {
+  background: white;
+  border: 10px solid rgba(255,255,255,1);
+  font-size: 14pt;
+}
+
+#movie-title {
+  border-left: 1px solid #323232;
+}
+
+#movie-count {
+  font-weight: bold;
+  font-size: 18pt;
 }

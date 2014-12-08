@@ -1,10 +1,33 @@
 <% include ../header %>
 
-<h1>Search Results</h1>
-<% for (var i = 0; i < Search.length; i++) { %>
-  <li>
-      <a href='/movies/<%= Search[i].imdbID %>'> <%= Search[i].Title %> (<%= Search[i].Year %>) </a>
-  </li>
-<% } %>
+<!-- else is broken
+-->
+<div class="container" id="chunk">
+    <div class="row">
+        <div class="col-md-12" id="chunk">
+            <h1>Search Results</h1>
+            <% for (var i = 0; i < Search.length; i++) { %>
+            <% if (Search.length != 0) {%>
+            <div class="container-fluid" id="movie-item">
+                <div class="row">
+                    <div class="col-xs-1 text-center" id="movie-count">
+                        <%= i + 1 %>
+                    </div>
+                    <div class="col-xs-6" id="movie-title">
+                        <a href="/movies/<%= Search[i].imdbID %>">
+                        <%= Search[i].Title %> (<%= Search[i].Year %>) </a>
+                    </div>
+                </div>
+            </div><br>
+
+            <%  }else { %>
+            <p>No results found.</p>
+            <% } %>
+            <% } %>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+</div>
 
 <% include ../footer %>
