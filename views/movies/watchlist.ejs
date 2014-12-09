@@ -1,5 +1,38 @@
 <% include ../header %>
 
- <h1 style="color: white; font-size:72pt; text-align:center;">Watchlist</h1>
+<h1 style="color: white; font-size:72pt; text-align:center;">Watchlist</h1>
+
+
+
+<div class="container" id="chunk">
+   <div class="row">
+      <div class="col-md-12" id="chunk">
+         <% for (var i = 0; i < Watchlist.length; i++) { %>
+         <% if (Watchlist.length != 0) {%>
+         <div class="container-fluid" id="movie-item">
+            <div class="row">
+               <div class="col-xs-1 text-center" id="movie-count">
+                  <%= i + 1 %>
+               </div>
+               <div class="col-xs-10" id="movie-title">
+                  <a href="/movies/<%= Watchlist[i].code %>">
+                     <ul>
+                        <li><%= Watchlist[i].title %> (<%= Watchlist[i].year %>) </li>
+                     </ul>
+                  </a>
+               </div>
+               <div class="col-xs-1">
+                  <a href="/movies/<%= Watchlist[i].code %>"></a>
+                  <a href="#" data-id="<%= Watchlist[i].id %>" class="deleteWatch">DELETE</a>
+               </div>
+            </div>
+            </div>
+         <%  } %>
+         <% } %>
+         <!-- <div class="col-md-4"></div> -->
+      </div>
+   </div>
+</div>
+</div>
 
 <% include ../footer %>

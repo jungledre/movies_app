@@ -1,28 +1,28 @@
 <% include ../header %>
 
-<!-- else is broken
--->
+<!-- else is broken-->
 
 <h1 style="color: white; font-size:72pt; text-align:center;">Search Results</h1>
-
 
 <div class="container" id="chunk">
     <div class="row">
         <div class="col-md-12" id="chunk">
-            <br>
             <% for (var i = 0; i < Search.length; i++) { %>
             <% if (Search.length != 0) {%>
             <div class="container-fluid" id="movie-item">
                 <div class="row">
-                    <div class="col-xs-1 text-center" id="movie-count">
+                    <div class="col-xs-1 text-center" style="color: #a2a2a2; font-size:30pt; text-align:center;" id="movie-count">
                         <%= i + 1 %>
                     </div>
-                    <div class="col-xs-6" id="movie-title">
-                        <a href="/movies/<%= Search[i].imdbID %>">
-                        <%= Search[i].Title %> (<%= Search[i].Year %>) </a>
+                    <div class="col-xs-6" style="color: #666;" id="movie-title">
+                        <a href="/movies/<%= Search[i].imdbID %>" style="color: #666;">
+                        <ul>
+                            <li><%= Search[i].Title %></li>
+                            <li>(<%= Search[i].Year %>)</li></a>
+                        </ul>
                     </div>
                 </div>
-            </div><br>
+            </div>
 
             <%  }else { %>
             <p>No results found.</p>

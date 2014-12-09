@@ -34,28 +34,41 @@ app.get("/movies/search/", function(req, res){
 app.post("/movies/added", function(req,res) {
     db.Watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
     .spread(function(Watchlist, created) {
-        // res.send(Watchlist);
         res.render("movies/added", {Watchlist: Watchlist});
+    });
+});
+
+
+// ??!?!?!? NEW WHAT?!?!?
+app.post("/movies/watchlist", function(req,res) {
+    db.Watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
+    .spread(function(Watchlist, created) {
+        res.render("movies/added", {Watchlist: Watchlist});
+    });
+});
+
+
+// Delete item from Watch List
+app.delete("/movies/watchlist/:id", function(req,res) {
+    db.Watchlist.destroy({where:{id:req.params.id}}).then(function(data){
+        res.send(req.params);
     });
 });
 
 // Display Watch List
 app.get("/movies/watchlist", function(req,res){
-    db.Watchlist.findAll().done(function(err, Watchlist) {
-        console.log("watch get2")
+    db.Watchlist.findAll({order: 'id ASC'}).done(function(err, Watchlist) {
         res.render("movies/watchlist", {Watchlist: Watchlist})
     });
 });
 
 // Specific movie info
 app.get("/movies/:imdb", function(req, res){
-    console.log("id get")
     var request = require("request");
     var id = req.params.imdb
     request("http://www.omdbapi.com/?i=" + id + "&tomatoes=true&", function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var stuff = JSON.parse(body);
-            console.log(stuff)
             res.render("movies/movies", stuff)
         }
         else {
@@ -63,7 +76,6 @@ app.get("/movies/:imdb", function(req, res){
         };
     });
 });
-
 
 
 
