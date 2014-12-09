@@ -16,11 +16,14 @@ body {
   text-transform: uppercase;
 }
 
-.navbar-inner {
-  background-color: white !important;
+.navbar {
+    background-color: white !important;
+    background-image: none !important;
 }
 
-
+.form-control {
+  background-color: #F1F2F3 !important;
+}
 
 h1 {
   color: white;
@@ -34,16 +37,26 @@ ul {
 
 a:link, a:visited, a:focus {
   text-decoration: none !important;
-  color: #a2a2a2;
+/*  color: #a2a2a2;*/
 }
 
 a:hover{
   color: #1E5C81 !important;
 }
 
+
+
 #chunk {
   background-color: rgba(255,255,255,.65);
   border: 10px solid white;
+}
+
+#movie-title {
+  color: #666 !important;
+}
+
+#movie-title ul li {
+  color: #666 !important;
 }
 
 #movie-item {
@@ -55,7 +68,9 @@ a:hover{
 }
 
 #movie-count {
+  color: #a2a2a2;
+  font-size:30pt;
+  text-align:center;
   font-weight: bold;
-  font-size: 18pt;
   border-right: 1px solid #ddd;
 }

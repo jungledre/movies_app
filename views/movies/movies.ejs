@@ -4,7 +4,7 @@
 
 <div class="container">
     <h1 style="color: white; font-size:72pt; text-align:center;"><%= Title %>  (<%= Year %>)</h1>
-    <div class="row container-fluid" id="chunk"><br>
+    <div class="row container-fluid" id="chunk">
         <div class="container">
         <div class="col-md-6" id="movie-item">
             <ul><br>
@@ -12,18 +12,20 @@
                 <li>Synopsis <br> <p style="color: #a2a2a2;"><%= Plot %></p></li><br>
                 <li>OFMG Rating: <%= tomatoMeter %>/100</li>
             </ul>
-            <form action="/movies/added" method="post" id="addWatch">
-                <button class="btn btn-default btn-lg" type="submit" value="Add To Watchlist">Add To Watchlist  <span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
+
+            <div>
+                <button class="btn btn-default btn-lg addWatch" type="submit" value="Add To Watchlist" a href="#" data-code="<%= imdbID %>" data-title="<%= Title%>" data-year="<%= Year %>">Add To Watchlist</button>
                 <input type="hidden" name="code" value="<%= imdbID %>">
                 <input type="hidden" name="title" value="<%= Title %>">
                 <input type="hidden" name="year" value="<%= Year %>">
-            </form>
-            <form action="/movies/deleted" method="post" id="deleteWatch">
+            </div>
+
+            <div class="deleteWatch" id="deleteWatch">
                 <button class="btn btn-default btn-lg" type="submit" value="Add To Watchlist">Delete From Watchlist <span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
                 <input type="hidden" name="code" value="<%= imdbID %>">
                 <input type="hidden" name="title" value="<%= Title %>">
                 <input type="hidden" name="year" value="<%= Year %>">
-            </form>
+            </div>
         </div>
         <div class="col-md-6" style="none;">
             <img src= <%= Poster %>><br><br>

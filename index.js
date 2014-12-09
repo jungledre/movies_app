@@ -31,19 +31,10 @@ app.get("/movies/search/", function(req, res){
 });
 
 // Add to Watch List
-app.post("/movies/added", function(req,res) {
+app.post("/movies/:id", function(req,res) {
     db.Watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
-    .spread(function(Watchlist, created) {
-        res.render("movies/added", {Watchlist: Watchlist});
-    });
-});
-
-
-// ??!?!?!? NEW WHAT?!?!?
-app.post("/movies/watchlist", function(req,res) {
-    db.Watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
-    .spread(function(Watchlist, created) {
-        res.render("movies/added", {Watchlist: Watchlist});
+    .spread(function(data, created) {
+        res.send({data: data});
     });
 });
 

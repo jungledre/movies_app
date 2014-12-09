@@ -4,8 +4,6 @@ $('.deleteWatch').on('click', function(event){
     event.preventDefault();
     var thisDeleteButton = $(this)
 
-    var movieNumbers = $(movieNumbers)
-
     $.ajax({
         url:'/movies/watchlist/' + thisDeleteButton.data('id'),
         type:'DELETE',
@@ -15,20 +13,23 @@ $('.deleteWatch').on('click', function(event){
             });
 
         url:'/movies/watchlist/'
-
-
-
         }
-    })
-    // $.ajax({
-    //       type: "POST",
-    //       url: '/movies/watchlist/',
-    //       data: data,
-    //       success: function(result){
-    //         thisDeleteButton.closest('#movie-count').text("Adrienne RULES");
-    //         }
-    //       dataType: dataType
-    //     });
-})
+    });
+});
+
+$('.addWatch').on('click', function(event){
+    event.preventDefault();
+    var thisCode = $(this).data('code')
+
+    $.post("/movies/"+$(this).data('code'), {
+        title: $(this).data('title'),
+        year: $(this).data('year'),
+        code: $(this).data('code')
+    }, function(data){
+        alert('Hello again!');
+    });
+});
+
+
 
 });
