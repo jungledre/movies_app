@@ -13,6 +13,30 @@ app.get("/", function(req, res){
     res.render("movies/home");
 });
 
+// Display Comments Page
+app.get("/movies/watchlist/:id/comments", function(req, res){
+    var commentId = req.params.id
+    db.comment.findAll({where: {watchlistId:commentId}}).then(function(returnMe){
+        // res.send({returnMe:returnMe})
+        res.render("movies/comments", {commentId: commentId, returnMe: returnMe});
+
+    })
+});
+
+// Comments POST request
+app.post("/movies/watchlist/:id/comments", function(req, res){
+
+    db.watchlist.find({where: {id: req.params.id}})
+    .then(function(newComment){
+
+    newComment.createComment({text: req.body.text})
+    .then(function(theComment){
+        res.redirect("comments")
+
+    });
+    });
+});
+
 // Search Movies
 app.get("/movies/search/", function(req, res){
     console.log("search get")

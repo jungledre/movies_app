@@ -14,7 +14,7 @@
                <div class="col-xs-1 text-center" id="movie-count">
                   <%= i + 1 %>
                </div>
-               <div class="col-xs-10" id="movie-title">
+               <div class="col-xs-7" id="movie-title">
                   <a href="/movies/<%= watchlist[i].code %>">
                      <ul>
                         <li><%= watchlist[i].title %></li>
@@ -22,8 +22,11 @@
                      </ul>
                   </a>
                </div>
-               <div class="col-xs-1" id="delete-button">
-                  <a href="/movies/<%= watchlist[i].code %>"></a>
+               <div class="col-xs-2" id="comment-button">
+                  <a href="/movies/watchlist/<%= watchlist[i].id %>/comments" data-id="<%= watchlist[i].id %>" class="commentWatch">Comment</a>
+               </div>
+
+               <div class="col-xs-2" id="delete-button">
                   <a href="#" data-id="<%= watchlist[i].id %>" class="deleteWatch">DELETE</a>
                </div>
             </div>
