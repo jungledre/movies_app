@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var Watchlist = sequelize.define("Watchlist", {
+  var watchlist = sequelize.define("watchlist", {
     code: DataTypes.STRING,
     title: DataTypes.STRING,
     year: DataTypes.STRING
@@ -13,5 +13,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Watchlist;
+  return watchlist;
 };

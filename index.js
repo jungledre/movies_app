@@ -31,8 +31,8 @@ app.get("/movies/search/", function(req, res){
 });
 
 // Add to Watch List
-app.post("/movies/:id", function(req,res) {
-    db.Watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
+app.post("/movies", function(req,res) {
+    db.watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
     .spread(function(data, created) {
         res.send({data: data});
     });
@@ -41,22 +41,22 @@ app.post("/movies/:id", function(req,res) {
 
 // Delete item from Watch List
 app.delete("/movies/watchlist/:id", function(req,res) {
-    db.Watchlist.destroy({where:{id:req.params.id}}).then(function(data){
+    db.watchlist.destroy({where:{id:req.params.id}}).then(function(data){
         res.send(req.params);
     });
 });
 
 // BROKEN Delete item from Movies Show List
 // app.delete("/movies/movies/:id", function(req,res) {
-//     db.Watchlist.destroy({where:{id:req.params.id}}).then(function(data){
+//     db.watchlist.destroy({where:{id:req.params.id}}).then(function(data){
 //         res.send(req.params);
 //     });
 // });
 
 // Display Watch List
 app.get("/movies/watchlist", function(req,res){
-    db.Watchlist.findAll({order: 'id ASC'}).done(function(err, Watchlist) {
-        res.render("movies/watchlist", {Watchlist: Watchlist})
+    db.watchlist.findAll({order: 'id ASC'}).done(function(err, watchlist) {
+        res.render("movies/watchlist", {watchlist: watchlist})
     });
 });
 
