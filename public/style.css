@@ -16,6 +16,10 @@ body {
   text-transform: uppercase;
 }
 
+.hiddenAdd {
+  display: none;
+}
+
 .navbar {
     background-color: white !important;
     background-image: none !important;

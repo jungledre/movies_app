@@ -20,13 +20,16 @@ $('.deleteWatch').on('click', function(event){
 $('.addWatch').on('click', function(event){
     event.preventDefault();
     var thisCode = $(this).data('code')
+    var thisButtonAdd = $(this)
 
-    $.post("/movies/"+$(this).data('code'), {
+    $.post("/movies/"+thisCode, {
         title: $(this).data('title'),
         year: $(this).data('year'),
         code: $(this).data('code')
+
     }, function(data){
-        alert('Hello again!');
+        thisButtonAdd.closest('.addWatch').hide("fast", function(){ $(".hiddenAdd").show("fast") })
+
     });
 });
 

@@ -22,7 +22,7 @@
                      </ul>
                   </a>
                </div>
-               <div class="col-xs-1">
+               <div class="col-xs-1" id="delete-button">
                   <a href="/movies/<%= Watchlist[i].code %>"></a>
                   <a href="#" data-id="<%= Watchlist[i].id %>" class="deleteWatch">DELETE</a>
                </div>
@@ -34,6 +34,4 @@
       </div>
    </div>
 </div>
-</div>
-
 <% include ../footer %>

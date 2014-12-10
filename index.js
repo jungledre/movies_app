@@ -46,6 +46,13 @@ app.delete("/movies/watchlist/:id", function(req,res) {
     });
 });
 
+// BROKEN Delete item from Movies Show List
+// app.delete("/movies/movies/:id", function(req,res) {
+//     db.Watchlist.destroy({where:{id:req.params.id}}).then(function(data){
+//         res.send(req.params);
+//     });
+// });
+
 // Display Watch List
 app.get("/movies/watchlist", function(req,res){
     db.Watchlist.findAll({order: 'id ASC'}).done(function(err, Watchlist) {
