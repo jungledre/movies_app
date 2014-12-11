@@ -1,6 +1,26 @@
-<% include ../header %>
+<html>
+<head>
+  <title>OFMG(☝ ◉ืൠ◉ื)</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="/script.js"></script>
+</head>
+<body>
 
-<h1 style="color: white; font-size:72pt; text-align:center;">OFMG</h1>
-<h2 style="color: white; text-align:center;">Track all of those films that you'll <br> eventually get around to watching</h2>
+<div class="container">
+    <div>
+        <h1 style="color: white; font-size:72pt; text-align:center;">OFMG</h1>
+        <h2 style="color: white; text-align:center;">Track all of those films that you'll <br> eventually get around to watching</h2>
+    </div>
+    <div class="form-group">
+        <form role="search" action='/movies/search' method='get'>
+            <input type="text" class="form-control" placeholder="Search" name='search'>
+        <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
 
 <% include ../footer %>

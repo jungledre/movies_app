@@ -29,11 +29,11 @@ app.post("/movies/watchlist/:id/comments", function(req, res){
     db.watchlist.find({where: {id: req.params.id}})
     .then(function(newComment){
 
-    newComment.createComment({text: req.body.text})
-    .then(function(theComment){
-        res.redirect("comments")
+        newComment.createComment({text: req.body.text})
+        .then(function(theComment){
+            res.redirect("comments")
 
-    });
+        });
     });
 });
 
