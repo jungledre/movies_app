@@ -16,7 +16,7 @@ app.get("/", function(req, res){
 // Display Comments Page
 app.get("/movies/watchlist/:id/comments", function(req, res){
     var commentId = req.params.id
-    db.comment.findAll({where: {watchlistId:commentId}}).then(function(returnMe){
+    db.comment.findAll({where: {watchlistId:commentId}, order: 'id DESC'}).then(function(returnMe){
         // res.send({returnMe:returnMe})
         res.render("movies/comments", {commentId: commentId, returnMe: returnMe});
 
@@ -70,13 +70,6 @@ app.delete("/movies/watchlist/:id", function(req,res) {
     });
 });
 
-// BROKEN Delete item from Movies Show List
-// app.delete("/movies/movies/:id", function(req,res) {
-//     db.watchlist.destroy({where:{id:req.params.id}}).then(function(data){
-//         res.send(req.params);
-//     });
-// });
-
 // Display Watch List
 app.get("/movies/watchlist", function(req,res){
     db.watchlist.findAll({order: 'id ASC'}).done(function(err, watchlist) {
@@ -98,8 +91,6 @@ app.get("/movies/:imdb", function(req, res){
         };
     });
 });
-
-
 
 app.listen(3000, function(){
     console.log("DEATH RACE 3000!")

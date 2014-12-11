@@ -12,6 +12,10 @@ body {
   text-transform: uppercase;
 }
 
+#homepage-container {
+  margin-top: 130px;
+}
+
 .hiddenAdd {
   display: none;
 }
