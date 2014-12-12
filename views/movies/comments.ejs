@@ -1,16 +1,13 @@
 <% include ../header %>
 
 <div class="container">
-    <h1 style="color: white; font-size:72pt; text-align:center;">COMMENTS</h1>
-
-    <form role="form" action="/movies/watchlist/<%= commentId %>/comments" method="POST">
-
-      <div class="form-group">
-        <textarea class="form-control" rows="3" name="text"></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-default">Add Comment</button>
-    </form>
+  <h1 style="color: white; font-size:72pt; text-align:center;">COMMENTS</h1>
+  <form role="form" action="/movies/watchlist/<%= commentId %>/comments" method="POST">
+    <div class="form-group">
+      <textarea class="form-control" rows="3" name="text"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Add Comment</button>
+  </form>
 
 
 <div class="container" id="chunk">
@@ -19,7 +16,6 @@
          <% for (var i = 0; i < returnMe.length; i++) { %>
          <div class="container-fluid" id="movie-item">
             <div class="row">
-
                <div class="col-xs-12" id="movie-comment">
                     <%= returnMe[i].text %>
                </div>
@@ -29,7 +25,6 @@
       </div>
    </div>
 </div>
-
-
+</div>
 
 <% include ../footer %>

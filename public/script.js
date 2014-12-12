@@ -29,13 +29,13 @@ $('.addWatch').on('click', function(event){
 
     });
 
-    $.post("/movies", {
+    $.post('/movies', {
         title: thisButtonAdd.data('title'),
         year: thisButtonAdd.data('year'),
         code: thisButtonAdd.data('code')
 
     }, function(data){
-        thisButtonAdd.closest('.addWatch').hide("fast", function(){ $(".hiddenAdd").show("fast") })
+        thisButtonAdd.closest('.addWatch').hide('fast', function(){ $('.hiddenAdd').show('fast') })
 
     });
 });

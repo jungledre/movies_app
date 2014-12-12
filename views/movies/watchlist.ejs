@@ -8,30 +8,29 @@
    <div class="row">
       <div class="col-md-12" id="chunk">
          <% for (var i = 0; i < watchlist.length; i++) { %>
-         <% if (watchlist.length != 0) {%>
-         <div class="container-fluid" id="movie-item">
-            <div class="row">
-               <div class="col-xs-1 text-center" id="movie-count">
-                  <%= i + 1 %>
+            <% if (watchlist.length != 0) {%>
+               <div class="container-fluid" id="movie-item">
+                  <div class="row">
+                     <div class="col-xs-1 text-center" id="movie-count">
+                        <%= i + 1 %>
+                     </div>
+                     <div class="col-xs-7" id="movie-title">
+                        <a href="/movies/<%= watchlist[i].code %>">
+                           <ul>
+                              <li><%= watchlist[i].title %></li>
+                              <li>(<%= watchlist[i].year %>)</li>
+                           </ul>
+                        </a>
+                     </div>
+                     <div class="col-xs-2" id="comment-button">
+                        <a href="/movies/watchlist/<%= watchlist[i].id %>/comments" data-id="<%= watchlist[i].id %>" class="commentWatch">Comment</a>
+                     </div>
+                     <div class="col-xs-2" id="delete-button">
+                        <a href="#" data-id="<%= watchlist[i].id %>" class="deleteWatch">DELETE</a>
+                     </div>
+                  </div>
                </div>
-               <div class="col-xs-7" id="movie-title">
-                  <a href="/movies/<%= watchlist[i].code %>">
-                     <ul>
-                        <li><%= watchlist[i].title %></li>
-                        <li>(<%= watchlist[i].year %>)</li>
-                     </ul>
-                  </a>
-               </div>
-               <div class="col-xs-2" id="comment-button">
-                  <a href="/movies/watchlist/<%= watchlist[i].id %>/comments" data-id="<%= watchlist[i].id %>" class="commentWatch">Comment</a>
-               </div>
-
-               <div class="col-xs-2" id="delete-button">
-                  <a href="#" data-id="<%= watchlist[i].id %>" class="deleteWatch">DELETE</a>
-               </div>
-            </div>
-            </div>
-         <%  } %>
+            <% } %>
          <% } %>
       </div>
    </div>

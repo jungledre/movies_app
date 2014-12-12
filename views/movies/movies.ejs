@@ -7,25 +7,24 @@
     <div class="row container-fluid" id="chunk">
         <div class="container">
         <div class="col-md-6" id="movie-item">
-            <ul><br>
-                <li>Directed by: <%= Director %></li><br>
-                <li>Synopsis <br> <p style="color: #a2a2a2;"><%= Plot %></p></li><br>
-                <li>OFMG Rating: <%= tomatoMeter %>/100</li>
-            </ul>
-
-            <div class="addWatch">
+            <div class="row">
+                <ul><br>
+                    <li>Directed by: <%= Director %></li><br>
+                    <li>Synopsis <br> <p style="color: #a2a2a2;"><%= Plot %></p></li><br>
+                    <li>OFMG Rating: <%= tomatoMeter %>/100</li>
+                </ul>
+            </div>
+            <div class="row addWatch">
                 <button class="btn btn-default btn-lg" type="submit" value="Add To Watchlist" a href="#" data-code="<%= imdbID %>" data-title="<%= Title%>" data-year="<%= Year %>">Add To Watchlist</button>
             </div>
-            <div class="hiddenAdd">
+            <div class="row hiddenAdd">
                 <button class="btn btn-default btn-lg">Added!</button>
             </div>
         </div>
         <div class="col-md-6" style="none;">
             <img src= <%= Poster %>><br><br>
         </div>
-        <div><br><br>
         </div>
-        </div><br>
     </div>
 </div>
 

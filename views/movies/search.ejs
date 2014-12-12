@@ -18,20 +18,18 @@
                         <a href="/movies/<%= Search[i].imdbID %>" style="color: #666;">
                         <ul>
                             <li><%= Search[i].Title %></li>
-                            <li>(<%= Search[i].Year %>)</li></a>
+                            <li>(<%= Search[i].Year %>)</li>
                         </ul>
+                        </a>
                     </div>
                 </div>
             </div>
-
             <%  }else { %>
             <p>No results found.</p>
             <% } %>
             <% } %>
-            <div class="col-md-4"></div>
         </div>
     </div>
-</div>
 </div>
 
 <% include ../footer %>
