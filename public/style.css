@@ -6,7 +6,7 @@
 
 body {
   background: url("http://s3.amazonaws.com/auteurs_production/images/film/house/w856/house.jpg") no-repeat center center fixed;
-  background-size: 100%;
+  background-size: cover;
   background-color: #2980b9;
   font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
   text-transform: uppercase;
