@@ -26,7 +26,6 @@ $('.addWatch').on('click', function(event){
         title: thisButtonAdd.data('title'),
         year: thisButtonAdd.data('year'),
         code: thisButtonAdd.data('code')
-
     });
 
     $.post('/movies', {
@@ -36,10 +35,6 @@ $('.addWatch').on('click', function(event){
 
     }, function(data){
         thisButtonAdd.closest('.addWatch').hide('fast', function(){ $('.hiddenAdd').show('fast') })
-
     });
 });
-
-
-
 });
