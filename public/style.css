@@ -56,14 +56,21 @@ a:hover{
 }
 
 #comment-button {
-  padding-top: 17px;
+  padding-top: 22px;
   color: #333;
 }
 
 #delete-button {
-  padding-top: 17px;
+  padding-top: 22px;
   color: #333;
   font-size: 25px;
+}
+
+#comment-entry {
+  padding: 20px;
+  margin:  0 35 0 35px;
+  width: 96.5%;
+  font-size: 14pt;
 }
 
 #artwork {
@@ -87,9 +94,10 @@ a:hover{
   margin-top: 0px;
 }
 
-#movie-title {
+#movie-title ul {
   color: #666 !important;
-  padding-top: 8px;
+  padding-top: 10px;
+  margin-bottom: 0px;
 }
 
 #title {
@@ -139,5 +147,7 @@ a:hover{
   font-size:30pt;
   text-align:center;
   font-weight: bold;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border-right: 1px solid #ddd;
 }
