@@ -92,7 +92,7 @@ app.get('/movies/watchlist', function(req,res){
 app.get('/movies/:imdb', function(req, res){
     var request = require('request');
     var id = req.params.imdb
-    request('http://www.omdbapi.com/?i=' + id + '&tomatoes=true&', function (error, response, body) {
+    request('http://www.omdbapi.com/?i=' + id + '&plot=full&tomatoes=true&', function (error, response, body) {
         if(!error && response.statusCode == 200) {
             var stuff = JSON.parse(body);
             res.render('movies/movies', stuff)

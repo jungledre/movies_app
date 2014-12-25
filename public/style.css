@@ -9,7 +9,7 @@ body {
   background-size: cover;
   background-color: #2980b9;
   font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
-  text-transform: uppercase;
+  font-size: 16px !important;
 }
 
 #homepage-container {
@@ -23,6 +23,7 @@ body {
 .navbar {
     background-color: white !important;
     background-image: none !important;
+    text-transform: uppercase;
 }
 
 .form-control {
@@ -33,6 +34,11 @@ h1 {
   color: white;
   font-size: 72pt;
   text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-transform: uppercase;
 }
 
 ul {
@@ -41,20 +47,55 @@ ul {
 
 a:link, a:visited, a:focus {
   text-decoration: none !important;
-/*  color: #a2a2a2;*/
+  text-transform: uppercase;
+  color: #a2a2a2;
 }
 
 a:hover{
-  color: #1E5C81 !important;
+  color: #3498db !important;
+}
+
+#comment-button {
+  padding-top: 17px;
+  color: #333;
+}
+
+#delete-button {
+  padding-top: 17px;
+  color: #333;
+  font-size: 25px;
+}
+
+#artwork {
+    padding: 0;
+}
+
+#artwork img {
+  width: 100%;
+  height: auto;
+}
+
+#top-row {
+  background-color: white;
+  margin: 15px 0 0 0;
+  padding: 0;
 }
 
 #chunk {
   background-color: rgba(255,255,255,.65);
   border: 10px solid white;
+  margin-top: 0px;
 }
 
 #movie-title {
   color: #666 !important;
+  padding-top: 8px;
+}
+
+#title {
+  color: white;
+  font-size:72pt;
+  text-align:center;"
 }
 
 #movie-title ul li {
@@ -67,6 +108,30 @@ a:hover{
   margin-top: 15px;
   margin-bottom: 15px;
   font-size: 14pt;
+}
+
+#movie-plot {
+  padding: 15px;
+  background: white;
+  border: 10px solid rgba(255,255,255,0);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 12pt;
+}
+
+#rating-circle {
+    border-radius: 50% !important;
+
+    width: 67px;
+    height: 67px;
+    padding: 8px;
+
+    background: #fff;
+    border: 4px solid #333;
+    color: #333;
+    text-align: center;
+
+    font-size: 32px !important;
 }
 
 #movie-count {
