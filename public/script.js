@@ -1,5 +1,7 @@
 $(function(){
 
+$("movie-info").height($("#artwork").height());
+
 $('.deleteWatch').on('click', function(event){
     event.preventDefault();
     var thisDeleteButton = $(this)

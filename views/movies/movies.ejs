@@ -9,18 +9,20 @@
                 <div class="col-md-4" id="artwork">
                     <img src= <%= Poster %>>
                 </div>
-                <div class="col-md-7">
-                    <div class="row" id="movie-info">
-                        <ul><br>
-                            <li><h1 style="text-align: left;"> <%= Title %></h1></li><br>
-                            <li>DIRECTED BY: <%= Director %></li><br>
-                            <li>STARRING: <%= Actors %></li><br>
-                            <li> <%= Genre %> </li>
-                            <li> <%= Country %> <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= Runtime %> </li><br>
+                <div class="col-md-7"id="movie-info">
+                    <div class="row">
+                        <ul>
+                            <li><h3 style="text-align: left;"> <%= Title %> (<%= Year %>)</h3></li>
+                            <li> <%= Country.split(',')[0] %> | <%= Language.split(',')[0] %> &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= Runtime %> </li>
+                            <li><strong>DIRECTED BY: </strong><%= Director %></li>
+                            <li><strong>WRITTEN BY: </strong><%= Writer %></li>
+                            <li><strong>STARRING: </strong><%= Actors %></li>
+                            <li><strong>GENRES: </strong><%= Genre %> </li>
+
                             <li id="rating-circle"><%= imdbRating %></li><br>
-                            <li>
+                            <li id="add-watchlist">
                                 <div class="addWatch">
-                                    <button class="btn btn-default btn-lg" type="submit" value="Add To Watchlist" a href="#" data-code="<%= imdbID %>" data-title="<%= Title %>" data-year="<%= Year %>">Add To Watchlist</button>
+                                    <button class="btn btn-default btn-lg" type="submit" value="Add To Watchlist" a href="#" data-code="<%= imdbID %>" data-title="<%= Title %>" data-year="<%= Year %>">Add to Watchlist</button>
                                 </div>
                                 <div class="hiddenAdd">
                                     <button class="btn btn-default btn-lg">Added!</button>
@@ -31,6 +33,7 @@
                 </div>
             </div>
             <div class="col-md-12" id="movie-plot">
+            <h3>Plot</h3>
                 <p><%= Plot %></p>
             </div>
     </div>

@@ -1,153 +1,197 @@
 * {
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border-radius: 0 !important;
+    -webkit-border-radius:0!important;
+    -moz-border-radius:0!important;
+    border-radius:0!important
 }
 
 body {
-  background: url("http://s3.amazonaws.com/auteurs_production/images/film/house/w856/house.jpg") no-repeat center center fixed;
-  background-size: cover;
-  background-color: #2980b9;
-  font-family: Helvetica,Arial,"Lucida Grande",sans-serif;
-  font-size: 16px !important;
+    background:url(http://s3.amazonaws.com/auteurs_production/images/film/house/w856/house.jpg) no-repeat center center fixed;
+    background-size:cover;
+    background-color:#2980b9;
+    font-family:Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size:16px!important
 }
 
 #homepage-container {
-  margin-top: 130px;
+    margin-top:130px
 }
 
 .hiddenAdd {
-  display: none;
+    display:none
 }
 
-.navbar {
-    background-color: white !important;
-    background-image: none !important;
-    text-transform: uppercase;
+nav.navbar.navbar-default {
+    background-color:#fff;
+    text-transform:uppercase
 }
 
 .form-control {
-  background-color: #F1F2F3 !important;
+    background-color:#F1F2F3!important
 }
 
 h1 {
-  color: white;
-  font-size: 72pt;
-  text-align: center;
-  text-transform: uppercase;
+    color:#fff!important;
+    font-size:72pt!important;
+    text-align:center!important;
+    text-transform:uppercase!important;
+    letter-spacing:2px
 }
 
 h2 {
-  text-transform: uppercase;
+    text-transform:uppercase;
+    color:#fff!important;
+    text-align:center;
+    letter-spacing:2px
+}
+
+h3 {
+    text-transform:uppercase;
+    font-size:30pt!important;
+    margin-top:0!important
+}
+
+h4 {
+    text-transform:uppercase
 }
 
 ul {
-  list-style-type: none;
+    list-style-type:none
 }
 
-a:link, a:visited, a:focus {
-  text-decoration: none !important;
-  text-transform: uppercase;
-  color: #a2a2a2;
+a:link,a:visited,a:focus {
+    text-decoration:none!important;
+    text-transform:uppercase;
+    color:#a2a2a2
 }
 
-a:hover{
-  color: #3498db !important;
+a:hover {
+    color:#3498db!important
+}
+
+a ul li:hover {
+    color:#3498db!important
+}
+
+#add-or-delete {
+    text-align:right;
+    color:#333;
+    padding-top:18px;
+    font-size:30px
 }
 
 #comment-button {
-  padding-top: 22px;
-  color: #333;
+    display:inline-block;
+    padding-right:20px
 }
 
 #delete-button {
-  padding-top: 22px;
-  color: #333;
-  font-size: 25px;
+    display:inline-block
 }
 
 #comment-entry {
-  padding: 20px;
-  margin:  0 35 0 35px;
-  width: 96.5%;
-  font-size: 14pt;
+    padding:20px;
+    margin:0 35px;
+    width:96.5%;
+    font-size:14pt
 }
 
 #artwork {
-    padding: 0;
-}
-
-#artwork img {
-  width: 100%;
-  height: auto;
-}
-
-#top-row {
-  background-color: white;
-  margin: 15px 0 0 0;
-  padding: 0;
+    padding:0
 }
 
 #chunk {
-  background-color: rgba(255,255,255,.65);
-  border: 10px solid white;
-  margin-top: 0px;
+    background-color:rgba(255,255,255,.65);
+    border:10px solid #fff;
+    margin-top:0
+}
+
+#top-row {
+    margin:15px 0 0;
+    padding:0;
+    display: table;
+}
+
+#movie-info {
+  margin-left: 10px;
+  float: none;
+  background-color:#fff;
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 40px;
+
+}
+
+#artwork {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  margin-right: 10px;
+
+
+}
+
+#artwork img {
+    width:100%;
+    height:auto;
+}
+
+#movie-info li {
+    padding-bottom:20px;
+    padding-right: 15px;
+
 }
 
 #movie-title ul {
-  color: #666 !important;
-  padding-top: 10px;
-  margin-bottom: 0px;
+    color:#666;
+    padding-top:10px;
+    margin-bottom:0
 }
 
 #title {
-  color: white;
-  font-size:72pt;
-  text-align:center;"
+    color:#fff;
+    font-size:72pt;
+    text-align:center
 }
 
 #movie-title ul li {
-  color: #666 !important;
+    color:#666
 }
 
 #movie-item {
-  background: white;
-  border: 10px solid rgba(255,255,255,0);
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 14pt;
+    background:#fff;
+    border:10px solid rgba(255,255,255,0);
+    margin-top:15px;
+    margin-bottom:15px;
+    font-size:14pt
 }
 
 #movie-plot {
-  padding: 15px;
-  background: white;
-  border: 10px solid rgba(255,255,255,0);
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 12pt;
+    padding:15px;
+    background:#fff;
+    border:10px solid rgba(255,255,255,0);
+    margin-top:15px;
+    margin-bottom:15px;
+    font-size:12pt
 }
 
 #rating-circle {
-    border-radius: 50% !important;
-
-    width: 67px;
-    height: 67px;
-    padding: 8px;
-
-    background: #fff;
-    border: 4px solid #333;
-    color: #333;
-    text-align: center;
-
-    font-size: 32px !important;
+    border-radius:50%!important;
+    width:68px;
+    height:68px;
+    padding:8px;
+    background:#fff;
+    border:4px solid #333;
+    color:#333;
+    text-align:center;
+    font-size:29px!important
 }
 
 #movie-count {
-  color: #a2a2a2;
-  font-size:30pt;
-  text-align:center;
-  font-weight: bold;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-right: 1px solid #ddd;
+    color:#a2a2a2;
+    font-size:30pt;
+    text-align:center;
+    font-weight:700;
+    padding-top:8px;
+    padding-bottom:8px;
+    border-right:1px solid #ddd
 }
