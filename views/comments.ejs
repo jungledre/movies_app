@@ -1,8 +1,8 @@
-<% include ../header %>
+<% include /header %>
 
 <div class="container">
   <h1 style="color: white; font-size:72pt; text-align:center;">COMMENTS</h1>
-  <form role="form" action="/movies/watchlist/<%= commentId %>/comments" method="POST">
+  <form role="form" action="/watchlist/<%= commentId %>/comments" method="POST">
     <div class="form-group">
       <input type="text" class="form-control" id="comment-entry" placeholder="Leave a comment" name="text">
     </div>
@@ -25,4 +25,4 @@
 </div>
 </div>
 
-<% include ../footer %>
+<% include /footer %>

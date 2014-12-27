@@ -1,22 +1,40 @@
 $(function(){
 
-$("movie-info").height($("#artwork").height());
-
 $('.deleteWatch').on('click', function(event){
     event.preventDefault();
     var thisDeleteButton = $(this)
 
     $.ajax({
-        url:'/movies/watchlist/' + thisDeleteButton.data('id'),
+        url:'/watchlist/' + thisDeleteButton.data('id'),
         type:'DELETE',
         success:function(result){
             thisDeleteButton.closest('#movie-item').slideUp('fast',function() {
                 $(this).remove();
             });
 
-        url:'/movies/watchlist/'
+        url:'/watchlist/'
         }
     });
+
+});
+
+$('.hiddenAdd').on('click', function(event){
+    event.preventDefault();
+    var thisDeleteButton = $(this)
+
+
+    $.ajax({
+        url:'/watchlist/' + data('code'),
+        type:'DELETE',
+        success:function(result){
+            alert("hi")
+            thisDeleteButton.closest('.hiddenAdd').hide('fast',function() {
+                $thisDeleteButton.remove();
+                $('.addWatch').show('fast')
+            })
+        }
+    });
+
 });
 
 $('.addWatch').on('click', function(event){
@@ -30,7 +48,7 @@ $('.addWatch').on('click', function(event){
         code: thisButtonAdd.data('code')
     });
 
-    $.post('/movies', {
+    $.post('/', {
         title: thisButtonAdd.data('title'),
         year: thisButtonAdd.data('year'),
         code: thisButtonAdd.data('code')
