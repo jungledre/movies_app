@@ -4,9 +4,9 @@
 
 <h1>Search Results</h1>
 
-<div class="container" id="chunk">
-    <div class="row">
-        <div class="col-md-12" id="chunk">
+<div class="container" >
+    <div class="row" id="whiteBlock">
+        <div class="col-md-12">
             <% for (var i = 0; i < Search.length; i++) { %>
             <% if (Search.length != 0) {%>
             <div class="container-fluid" id="movie-item">
@@ -15,7 +15,7 @@
                         <%= i + 1 %>
                     </div>
                     <div class="col-xs-6" id="movie-title">
-                        <a href="/<%= Search[i].imdbID %>" style="color: #666;">
+                        <a href="/movie/<%= Search[i].imdbID %>" style="color: #666;">
                         <ul>
                             <li><%= Search[i].Title %><br>(<%= Search[i].Year %>)</li>
                         </ul>

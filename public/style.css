@@ -21,7 +21,7 @@ body {
 }
 
 nav.navbar.navbar-default {
-    background-color:#fff;
+    background-color:#fff!important;
     text-transform:uppercase
 }
 
@@ -88,25 +88,37 @@ a ul li:hover {
     display:inline-block
 }
 
+#comment-box {
+    border:20px solid #fff;
+    background-color:rgba(255,255,255,.65);
+    padding-right: 35;
+}
+
 #comment-entry {
     padding:20px;
-    margin:0 35px;
-    width:96.5%;
-    font-size:14pt
+    margin:15px 0px 0px 15px;
+    width:100%;
+    font-size:14pt;
+    background-color:rgba(255,255,255,.65);
+
 }
 
 #artwork {
     padding:0
 }
 
-#chunk {
+#whiteBlock {
     background-color:rgba(255,255,255,.65);
-    border:10px solid #fff;
-    margin-top:0
+    border:20px solid #fff;
+    width:100%;
+}
+
+div#whiteBlock.row {
+    margin: 0;
 }
 
 #top-row {
-    margin:15px 0 0;
+    margin-top:15px;
     padding:0;
     display: table;
 }
@@ -163,6 +175,7 @@ a ul li:hover {
     border:10px solid rgba(255,255,255,0);
     margin-top:15px;
     margin-bottom:15px;
+    margin-right: 0px;
     font-size:14pt
 }
 
@@ -195,4 +208,27 @@ a ul li:hover {
     padding-top:8px;
     padding-bottom:8px;
     border-right:1px solid #ddd
+}
+
+#signup-entry, #login-entry {
+    border-bottom: 1px solid lightgrey;
+    background-color: white!important;
+    margin-bottom: 0px;
+}
+
+input.btn.btn-primary.center-block {
+    background-color: #3498db;
+    border: #3498db;
+    border-bottom: 3px solid 1E587F;
+}
+
+#glyphiconWhite {
+    color: white;
+    display: block;
+    margin: auto;
+    text-align: center;
+;}
+
+#glyphiconWhite:empty{
+  width: 100%;
 }

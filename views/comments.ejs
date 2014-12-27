@@ -1,16 +1,16 @@
 <% include /header %>
+  <h1 style="color: white; font-size:72pt; text-align:center;">COMMENTS</h1>
 
 <div class="container">
-  <h1 style="color: white; font-size:72pt; text-align:center;">COMMENTS</h1>
-  <form role="form" action="/watchlist/<%= commentId %>/comments" method="POST">
+  <form id="comment-box" role="form" action="/watchlist/<%= commentId %>/comments" method="POST">
     <div class="form-group">
       <input type="text" class="form-control" id="comment-entry" placeholder="Leave a comment" name="text">
     </div>
   </form>
 
-<div class="container" id="chunk">
+<div class="container" id="whiteBlock">
     <div class="row">
-      <div class="col-md-12" id="chunk">
+      <div class="col-md-12">
          <% for (var i = 0; i < returnMe.length; i++) { %>
          <div class="container-fluid" id="movie-item">
             <div class="row">

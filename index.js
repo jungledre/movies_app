@@ -105,7 +105,7 @@ app.delete('/watchlist/:id', function(req,res) {
 });
 
 // MOVIES
-app.get('/:imdb', function(req, res){
+app.get('/movie/:imdb', function(req, res){
     var request = require('request');
     var id = req.params.imdb
     request('http://www.omdbapi.com/?i=' + id + '&plot=full&tomatoes=true&', function (error, response, body) {
@@ -119,14 +119,14 @@ app.get('/:imdb', function(req, res){
 });
 
 // MOVIES delete from watchlist
-app.delete('/:imdb', function(req,res) {
+app.delete('/movie/:imdb', function(req,res) {
     db.watchlist.destroy({where:{code:req.params.imdb}}).then(function(data){
         res.send(req.params);
     });
 });
 
 // LOGIN FORM
-app.route('login')
+app.route('/login')
 .get(function(req,res){
     res.render('login');
 })
