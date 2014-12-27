@@ -11,10 +11,10 @@
             <% if (Search.length != 0) {%>
             <div class="container-fluid" id="movie-item">
                 <div class="row">
-                    <div class="col-xs-1 text-center" id="movie-count">
+                    <div class="col-md-1 col-sm-1 col-xs-1 text-center" id="movie-count">
                         <%= i + 1 %>
                     </div>
-                    <div class="col-xs-6" id="movie-title">
+                    <div class="col-md-6 col-sm-6 col-xs-6" id="movie-title">
                         <a href="/movie/<%= Search[i].imdbID %>" style="color: #666;">
                         <ul>
                             <li><%= Search[i].Title %><br>(<%= Search[i].Year %>)</li>
