@@ -3,16 +3,22 @@
 <!-- else is broken-->
 
 <h1>Search Results</h1>
-
-<div class="container" >
+    <div class="container" >
     <div class="row" id="whiteBlock">
+    <div id="alerts">
+    <% include alerts %>
+    </div>
         <div class="col-md-12">
+
+            <% count = 0  %>
             <% for (var i = 0; i < Search.length; i++) { %>
-            <% if (Search.length != 0) {%>
+            <% if (Search.length != 0 && Search[i].Type === "movie" && (Search[i].Title.toLowerCase()).indexOf('undefined') === -1) {%>
+            <% count += 1 %>
+
             <div class="container-fluid" id="movie-item">
                 <div class="row">
                     <div class="col-md-1 col-sm-1 col-xs-1 text-center" id="movie-count">
-                        <%= i + 1 %>
+                        <%= count %>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-6" id="movie-title">
                         <a href="/movie/<%= Search[i].imdbID %>" style="color: #666;">
@@ -23,9 +29,7 @@
                     </div>
                 </div>
             </div>
-            <%  }else { %>
-            <p>No results found.</p>
-            <% } %>
+            <%  } %>
             <% } %>
         </div>
     </div>

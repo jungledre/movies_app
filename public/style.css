@@ -72,6 +72,11 @@ a ul li:hover {
     color:#3498db!important
 }
 
+#alerts {
+    margin: 20px 20px 0px 20px;
+
+}
+
 #add-or-delete {
     text-align:right;
     color:#333;
@@ -173,7 +178,6 @@ div#whiteBlock.row {
 #movie-item {
     background:#fff;
     border:10px solid rgba(255,255,255,0);
-    margin-top:15px;
     margin-bottom:15px;
     margin-right: 0px;
     font-size:14pt

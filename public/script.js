@@ -11,9 +11,11 @@ $('.deleteWatch').on('click', function(event){
             thisDeleteButton.closest('#movie-item').slideUp('fast',function() {
                 $(this).remove();
             });
-
         url:'/watchlist/'
         }
+        // beforeSend:function(result){
+        //     $(.deleteWatch).addClass('is-loading');
+        // }
     });
 
 });

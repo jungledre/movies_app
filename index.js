@@ -15,7 +15,7 @@ app.use(session({
     secret: 'sparkles',
     resave: false,
     saveUnititialized: true
-}))
+}));
 
 app.use(function(req, res, next){
     req.getUser = function(){
@@ -26,7 +26,7 @@ app.use(function(req, res, next){
         req.session.settings={};
     }
     next();
-})
+});
 
 app.use(flash());
 
@@ -35,7 +35,7 @@ app.get('*',function(req,res,next){
     res.locals.alerts = alerts;
     res.locals.currentUser = req.getUser();
     next();
-})
+});
 
 // HOME
 app.get('/', function(req, res){
