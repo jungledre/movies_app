@@ -3,19 +3,18 @@
 <!-- else is broken-->
 
 <h1>Search Results</h1>
-    <div class="container" >
-    <div class="row" id="whiteBlock">
     <div id="alerts">
     <% include alerts %>
     </div>
+<div class="container">
+    <div class="row" id="whiteBlock">
         <div class="col-md-12">
-
             <% count = 0  %>
             <% for (var i = 0; i < Search.length; i++) { %>
             <% if (Search.length != 0 && Search[i].Type === "movie" && (Search[i].Title.toLowerCase()).indexOf('undefined') === -1) {%>
             <% count += 1 %>
 
-            <div class="container-fluid" id="movie-item">
+            <div class="container-fluid" id="search-item">
                 <div class="row">
                     <div class="col-md-1 col-sm-1 col-xs-1 text-center" id="movie-count">
                         <%= count %>

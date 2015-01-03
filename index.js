@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var bcrypt = require('bcrypt');
 var request = require('request');
 var db = require('./models/index.js');
 var session = require('express-session');
 var flash = require('connect-flash');
-
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
@@ -16,19 +16,14 @@ app.use(session({
     resave: false,
     saveUnititialized: true
 }));
-
+app.use(flash());
 app.use(function(req, res, next){
     req.getUser = function(){
         return req.session.user || false;
     }
-
-    if(!req.session.settings) {
-        req.session.settings={};
-    }
     next();
 });
 
-app.use(flash());
 
 app.get('*',function(req,res,next){
     var alerts = req.flash();
@@ -53,8 +48,7 @@ app.get('/search/', function(req, res){
             if(stuff.Error){
                 req.flash('warning','Invalid Search')
                 res.redirect('/search')
-            }
-            else{
+            } else{
                 res.render('search', stuff)
             }
         } else{
@@ -65,12 +59,21 @@ app.get('/search/', function(req, res){
 
 // Add to Watch List
 app.post('/', function(req,res) {
-    db.watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
-    .spread(function(data, created) {
+    var currentUser = req.getUser();
+    if (req.getUser()) {
+        var currentUser = req.getUser();
+        db.user_watchlist.findOrCreate({
+            where: {userId: currentUser.id, code: req.body.code, title: req.body.title, year: req.body.year}
+        }).spread(function(data, created) {
         res.send({data: data});
-    });
+        })
+    }else {
+        db.watchlist.findOrCreate({where: {code: req.body.code, title: req.body.title, year: req.body.year }})
+        .spread(function(data, created) {
+            res.send({data: data});
+        });
+    }
 });
-
 
 // COMMENTS
 app.route('/watchlist/:id/comments')
@@ -92,9 +95,14 @@ app.route('/watchlist/:id/comments')
 
 // WATCHLIST
 app.get('/watchlist', function(req,res){
-    db.watchlist.findAll({order: 'id ASC'}).done(function(err, watchlist) {
+    var currentUser = req.getUser();
+    if (req.getUser()) {
+        db.user_watchlist.findAll({where: {userId: currentUser.id}, order: 'id DESC'}).done(function(error, watchlist){
         res.render('watchlist', {watchlist: watchlist})
-    });
+    })} else {
+        db.watchlist.findAll({order: 'id ASC'}).done(function(err, watchlist) {
+        res.render('watchlist', {watchlist: watchlist})
+    })}
 });
 
 // WATCHLIST delete item
@@ -143,12 +151,12 @@ app.route('/login')
                     res.redirect('/');
                 } else{
                     req.flash('warning','Invalid password');
-                    res.redirect('login')
+                    res.redirect('/login')
                 }
             })
         } else{
             req.flash('warning','Unknown user');
-            res.redirect('login')
+            res.redirect('/login')
         }
     });
 });
@@ -159,19 +167,24 @@ app.route('/signup')
     res.render('signup');
 })
 .post(function(req,res){
-    var user = {
-        where: {email:req.body.email},
-        defaults:{email:req.body.email, password:req.body.password, name:req.body.name }
+    var newUser = {
+        where: {name:req.body.name},
+        defaults:{name:req.body.name, email:req.body.email, password:req.body.password}
     }
-    db.user.findOrCreate(user).spread(function(data, created){
-        res.redirect('login');
-    }).
-    catch(function(error){
-        if(error && error.errors && Array(error.errors)){
+    db.user.findOrCreate(newUser).spread(function(createdUser, created){
+        if(created == true) {
+          req.flash('info', 'Account Created Successfully');
+          res.redirect('/login');
+        } else{
+          req.flash('warning', 'User Name already taken');
+          res.redirect('/signup');
+        }
+    }).catch(function(error){
+        if(error && Array.isArray(error.errors)){
             error.errors.forEach(function(errorItem){
                 req.flash('danger',errorItem.message);
             })
-        } else {
+        } else{
             req.flash('danger', 'Something weird happened.')
         }
         res.redirect('/signup')

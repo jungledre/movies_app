@@ -3,12 +3,11 @@ $(function(){
 $('.deleteWatch').on('click', function(event){
     event.preventDefault();
     var thisDeleteButton = $(this)
-
     $.ajax({
         url:'/watchlist/' + thisDeleteButton.data('id'),
         type:'DELETE',
         success:function(result){
-            thisDeleteButton.closest('#movie-item').slideUp('fast',function() {
+            thisDeleteButton.closest('#watchlist-item').slideUp('fast',function() {
                 $(this).remove();
             });
         url:'/watchlist/'
@@ -17,7 +16,6 @@ $('.deleteWatch').on('click', function(event){
         //     $(.deleteWatch).addClass('is-loading');
         // }
     });
-
 });
 
 $('.hiddenAdd').on('click', function(event){
