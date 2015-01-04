@@ -24,6 +24,7 @@ app.use(function(req, res, next){
     next();
 });
 
+
 // GENERAL
 app.get('*',function(req,res,next){
     var alerts = req.flash();
@@ -226,11 +227,34 @@ app.route('/signup')
     });
 });
 
-//LOGOUT
+// LOGOUT
 app.get('/logout',function(req,res){
     delete req.session.user;
     req.flash('info', 'You have been logged out.')
     res.redirect('/')
+});
+
+// HANDLE 404
+app.use(function(req, res, next){
+  res.status(404);
+  if (req.accepts('html')) {
+    res.render('404', { url: req.url });
+    return;
+  }
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+  res.type('txt').send('Not found');
+});
+
+// HANDLE 500
+app.use(function(err, req, res, next){
+  // we may use properties of the error object
+  // here and next(err) appropriately, or if
+  // we possibly recovered from the error, simply next().
+  res.status(err.status || 500);
+  res.render('500', { error: err });
 });
 
 app.listen(process.env.PORT || 3000, function(){
