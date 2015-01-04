@@ -25,6 +25,10 @@ nav.navbar.navbar-default {
     text-transform:uppercase
 }
 
+.navbar-nav>li>a {
+    font-size: 14px;
+}
+
 .form-control {
     background-color:#F1F2F3
 }
