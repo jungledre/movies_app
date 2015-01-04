@@ -96,18 +96,12 @@ a ul li:hover {
     display:inline-block
 }
 
-#comment-box {
-    border:20px solid #fff;
-    background-color:rgba(255,255,255,.65);
-    padding-right: 35;
-}
-
 #comment-entry {
     padding:20px;
-    margin:15px 0px 0px 15px;
+    margin:15px 0px 0px 0px;
     width:100%;
     font-size:14pt;
-    background-color:rgba(255,255,255,.65);
+    background-color:rgba(255,255,255,.85);
 }
 
 #artwork {
