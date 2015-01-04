@@ -1,5 +1,10 @@
 <% include /header %>
-<h1 style="color: white; font-size:72pt; text-align:center;">COMMENTS</h1>
+
+<h1>Comments</h1>
+
+<div id="alerts">
+<% include alerts %>
+</div>
 
 <div class="container">
   <form id="comment-box" role="form" action="/watchlist/<%= commentId %>/comments" method="POST">

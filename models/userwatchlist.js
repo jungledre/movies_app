@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var user_watchlist = sequelize.define("user_watchlist", {
+  var userwatchlist = sequelize.define("userwatchlist", {
     userId: DataTypes.INTEGER,
     code: DataTypes.STRING,
     title: DataTypes.STRING,
@@ -9,10 +9,11 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.user_watchlist.belongsTo(models.user)
+        models.userwatchlist.hasMany(models.usercomment)
+        models.userwatchlist.belongsTo(models.user)
       }
     }
   });
 
-  return user_watchlist;
+  return userwatchlist;
 };

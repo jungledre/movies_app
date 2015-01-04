@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.user.hasMany(models.user_watchlist)
+        models.user.hasMany(models.userwatchlist)
       }
     },
     hooks: {

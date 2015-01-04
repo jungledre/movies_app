@@ -21,30 +21,30 @@ body {
 }
 
 nav.navbar.navbar-default {
-    background-color:#fff!important;
+    background-color:#fff;
     text-transform:uppercase
 }
 
 .form-control {
-    background-color:#F1F2F3!important
+    background-color:#F1F2F3
 }
 
-h1 {
-    color:#fff!important;
-    font-size:72pt!important;
-    text-align:center!important;
-    text-transform:uppercase!important;
+body h1 {
+    color:#fff;
+    font-size:72pt;
+    text-align:center;
+    text-transform:uppercase;
     letter-spacing:2px
 }
 
-h2 {
+body h2 {
     text-transform:uppercase;
-    color:#fff!important;
+    color:#fff;
     text-align:center;
     letter-spacing:2px
 }
 
-h3 {
+body h3 {
     text-transform:uppercase;
     font-size:30pt!important;
     margin-top:0!important
@@ -74,7 +74,6 @@ a ul li:hover {
 
 #alerts {
     margin: 20px 20px 0px 20px;
-
 }
 
 #add-or-delete {
@@ -105,7 +104,6 @@ a ul li:hover {
     width:100%;
     font-size:14pt;
     background-color:rgba(255,255,255,.65);
-
 }
 
 #artwork {
@@ -125,6 +123,7 @@ div#whiteBlock.row {
 
 #top-row {
     margin-top:15px;
+    background-color:#fff;
     padding:0;
     display: table;
 }
@@ -136,7 +135,6 @@ div#whiteBlock.row {
   display: table-cell;
   vertical-align: top;
   padding-top: 40px;
-
 }
 
 #artwork {
@@ -145,8 +143,6 @@ div#whiteBlock.row {
   vertical-align: top;
   margin-right: 10px;
   position: relative;
-
-
 }
 
 #artwork img {
@@ -157,7 +153,6 @@ div#whiteBlock.row {
 #movie-info li {
     padding-bottom:20px;
     padding-right: 15px;
-
 }
 
 #movie-title ul {
@@ -176,36 +171,19 @@ div#whiteBlock.row {
     color:#666
 }
 
-#watchlist-item {
-    background:#fff;
-    border:10px solid rgba(255,255,255,0);
-    margin-top: 20px;
-    margin-right: 0px;
-    font-size:14pt
-}
-
-#search-item {
+#watchlist-item, #search-item, #movie-comment{
     background:#fff;
     border:10px solid rgba(255,255,255,0);
     margin-top: 15px;
     margin-right: 0px;
     font-size:14pt
 }
-
-#movie-comment {
-    background:#fff;
-    border:10px solid rgba(255,255,255,0);
-    margin-top: 15px;
-    font-size:14pt
-}
-
 
 #movie-plot {
     padding:15px;
     background:#fff;
     border:10px solid rgba(255,255,255,0);
     margin-top:15px;
-    margin-bottom:15px;
     font-size:12pt
 }
 

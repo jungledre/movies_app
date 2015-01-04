@@ -24,7 +24,7 @@ app.use(function(req, res, next){
     next();
 });
 
-
+// GENERAL
 app.get('*',function(req,res,next){
     var alerts = req.flash();
     res.locals.alerts = alerts;
@@ -62,7 +62,7 @@ app.post('/', function(req,res) {
     var currentUser = req.getUser();
     if (req.getUser()) {
         var currentUser = req.getUser();
-        db.user_watchlist.findOrCreate({
+        db.userwatchlist.findOrCreate({
             where: {userId: currentUser.id, code: req.body.code, title: req.body.title, year: req.body.year}
         }).spread(function(data, created) {
         res.send({data: data});
@@ -78,12 +78,38 @@ app.post('/', function(req,res) {
 // COMMENTS
 app.route('/watchlist/:id/comments')
 .get(function(req, res){
-    var commentId = req.params.id
-    db.comment.findAll({where: {watchlistId:commentId}, order: 'id DESC'}).then(function(returnMe){
-        res.render('comments', {commentId: commentId, returnMe: returnMe});
-    });
+    if (req.getUser()){
+        var currentUser = req.getUser();
+        var commentId = req.params.id
+        db.userwatchlist.find({where: {userId: currentUser.id}})
+        .then(function(newComment){
+            db.usercomment.findAll({where: {userwatchlistId:commentId}, order: 'id DESC'})
+                .then(function(returnMe){
+                    res.render('comments', {commentId: commentId, returnMe: returnMe})
+                })
+        })
+    }
+    else {
+        var commentId = req.params.id
+        db.comment.findAll({where: {watchlistId:commentId}, order: 'id DESC'})
+            .then(function(returnMe){
+                res.render('comments', {commentId: commentId, returnMe: returnMe});
+        });
+    }
+
 })
 .post(function(req, res){
+    if (req.getUser()) {
+        var currentUser = req.getUser();
+        db.userwatchlist.find({where: {userId: currentUser.id}})
+        .then(function(newComment){
+            newComment.createUsercomment({text: req.body.text})
+            .then(function(theComment){
+                console.log("hi")
+                res.redirect('comments')
+            });
+    })
+    } else{
     db.watchlist.find({where: {id: req.params.id}})
     .then(function(newComment){
         newComment.createComment({text: req.body.text})
@@ -91,13 +117,14 @@ app.route('/watchlist/:id/comments')
             res.redirect('comments')
         });
     });
+    }
 });
 
 // WATCHLIST
 app.get('/watchlist', function(req,res){
     var currentUser = req.getUser();
     if (req.getUser()) {
-        db.user_watchlist.findAll({where: {userId: currentUser.id}, order: 'id DESC'}).done(function(error, watchlist){
+        db.userwatchlist.findAll({where: {userId: currentUser.id}, order: 'id DESC'}).done(function(error, watchlist){
         res.render('watchlist', {watchlist: watchlist})
     })} else {
         db.watchlist.findAll({order: 'id ASC'}).done(function(err, watchlist) {
@@ -107,9 +134,17 @@ app.get('/watchlist', function(req,res){
 
 // WATCHLIST delete item
 app.delete('/watchlist/:id', function(req,res) {
-    db.watchlist.destroy({where:{id:req.params.id}}).then(function(data){
+    var currentUser = req.getUser();
+    if (req.getUser()) {
+        db.userwatchlist.destroy({where:{id:req.params.id}}).then(function(data){
         res.send(req.params);
     });
+    } else {
+        db.watchlist.destroy({where:{id:req.params.id}}).then(function(data){
+        res.send(req.params);
+    });
+    }
+
 });
 
 // MOVIES
