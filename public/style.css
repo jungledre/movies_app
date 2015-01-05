@@ -5,9 +5,11 @@
 }
 
 body {
-    background:url(http://s3.amazonaws.com/auteurs_production/images/film/house/w856/house.jpg) no-repeat center center fixed;
-    background-size:cover;
-    background-color:#2980b9;
+/*    background:url(http://s3.amazonaws.com/auteurs_production/images/film/house/w856/house.jpg) no-repeat center center fixed;
+*/
+    background:url("swirl_pattern.jpg");
+/*    background-size:cover;
+*/    background-color:#2980b9;
     font-family:Helvetica,Arial,"Lucida Grande",sans-serif;
     font-size:16px!important
 }
@@ -38,14 +40,14 @@ body h1 {
     font-size:72pt;
     text-align:center;
     text-transform:uppercase;
-    letter-spacing:2px
 }
 
 body h2 {
     text-transform:uppercase;
     color:#fff;
     text-align:center;
-    letter-spacing:2px
+    letter-spacing:2px;
+    font-family:"HelveticaCondensed",Helvetica,Arial,"Lucida Grande",sans-serif
 }
 
 body h3 {
@@ -54,8 +56,16 @@ body h3 {
     margin-top:0!important
 }
 
-h4 {
+body h4 {
     text-transform:uppercase
+}
+
+body h5 {
+    text-transform:uppercase;
+    text-align:center;
+    font-size:12pt!important;
+    font-family:"HelveticaCondensed",Helvetica,Arial,"Lucida Grande",sans-serif;
+    color: white;
 }
 
 ul {
@@ -208,6 +218,8 @@ div#whiteBlock.row {
 }
 
 #signup-entry, #login-entry {
+
+    border:0px solid lightgrey;
     border-bottom: 1px solid lightgrey;
     background-color: white!important;
     margin-bottom: 0px;
@@ -216,7 +228,7 @@ div#whiteBlock.row {
 input.btn.btn-primary.center-block {
     background-color: #3498db;
     border: #3498db;
-    border-bottom: 3px solid 1E587F;
+    border-bottom: 5px solid 1E587F;
 }
 
 #glyphiconWhite {

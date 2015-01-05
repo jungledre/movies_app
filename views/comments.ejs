@@ -3,21 +3,21 @@
 <h1>Comments</h1>
 
 <div id="alerts">
-<% include alerts %>
+  <% include alerts %>
 </div>
 <div class="container">
-<div class="col-md-12 container-fluid" id="whiteBlock">
-  <form role="form" action="/watchlist/<%= commentId %>/comments" method="POST">
-    <div class="form-group">
-      <input type="text" class="form-control" id="comment-entry" placeholder="Leave a new comment" name="text">
+  <div class="col-md-12 container-fluid" id="whiteBlock">
+    <form role="form" action="/watchlist/<%= commentId %>/comments" method="POST">
+      <div class="form-group">
+        <input type="text" class="form-control" id="comment-entry" placeholder="Leave a new comment" name="text">
+      </div>
+    </form>
+    <% for (var i = 0; i < returnMe.length; i++) { %>
+    <div class="col-xs-12" id="movie-comment">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= returnMe[i].text %>
     </div>
-  </form>
-     <% for (var i = 0; i < returnMe.length; i++) { %>
-           <div class="col-xs-12" id="movie-comment">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; <%= returnMe[i].text %>
-           </div>
-     <% } %>
-</div>
+    <% } %>
+  </div>
 </div>
 
 

@@ -24,7 +24,6 @@ app.use(function(req, res, next){
     next();
 });
 
-
 // GENERAL
 app.get('*',function(req,res,next){
     var alerts = req.flash();
@@ -47,7 +46,7 @@ app.get('/search/', function(req, res){
         if(!error && response.statusCode == 200) {
             var stuff = JSON.parse(body);
             if(stuff.Error){
-                req.flash('warning','Invalid Search')
+                req.flash('info','Invalid Search')
                 res.redirect('/search')
             } else{
                 res.render('search', stuff)
@@ -99,25 +98,25 @@ app.route('/watchlist/:id/comments')
     }
 
 })
-.post(function(req, res){
+.post(function(req,res){
     if (req.getUser()) {
         var currentUser = req.getUser();
-        db.userwatchlist.find({where: {userId: currentUser.id}})
+        db.userwatchlist.find({where: {id: req.params.id}})
         .then(function(newComment){
             newComment.createUsercomment({text: req.body.text})
             .then(function(theComment){
-                console.log("hi")
                 res.redirect('comments')
             });
-    })
+        })
+
     } else{
-    db.watchlist.find({where: {id: req.params.id}})
-    .then(function(newComment){
-        newComment.createComment({text: req.body.text})
-        .then(function(theComment){
-            res.redirect('comments')
+        db.watchlist.find({where: {id: req.params.id}})
+        .then(function(newComment){
+            newComment.createComment({text: req.body.text})
+            .then(function(theComment){
+                res.redirect('comments')
+            });
         });
-    });
     }
 });
 
@@ -186,12 +185,12 @@ app.route('/login')
                     };
                     res.redirect('/');
                 } else{
-                    req.flash('warning','Invalid password');
+                    req.flash('info','Invalid password');
                     res.redirect('/login')
                 }
             })
         } else{
-            req.flash('warning','Unknown user');
+            req.flash('info','Unknown user');
             res.redirect('/login')
         }
     });
@@ -212,16 +211,16 @@ app.route('/signup')
           req.flash('info', 'Account Created Successfully');
           res.redirect('/login');
         } else{
-          req.flash('warning', 'User Name already taken');
+          req.flash('info', 'User Name already taken');
           res.redirect('/signup');
         }
     }).catch(function(error){
         if(error && Array.isArray(error.errors)){
             error.errors.forEach(function(errorItem){
-                req.flash('danger',errorItem.message);
+                req.flash('info',errorItem.message);
             })
         } else{
-            req.flash('danger', 'Something weird happened.')
+            req.flash('info', 'Something weird happened.')
         }
         res.redirect('/signup')
     });
