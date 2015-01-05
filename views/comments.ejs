@@ -1,11 +1,8 @@
 <% include /header %>
 
-<h1>Comments</h1>
-
-<div id="alerts">
-  <% include alerts %>
-</div>
 <div class="container">
+<h1>Comments</h1>
+<% include alerts %>
   <div class="col-md-12 container-fluid" id="whiteBlock">
     <form role="form" action="/watchlist/<%= commentId %>/comments" method="POST">
       <div class="form-group">
@@ -19,6 +16,5 @@
     <% } %>
   </div>
 </div>
-
 
 <% include /footer %>

@@ -1,11 +1,8 @@
 <% include /header %>
-<h1 id="title"><%= Title %>  (<%= Year %>) </h1>
-
-<div id="alerts">
-<% include alerts %>
-</div>
 
 <div class="container">
+<h1 id="title"><%= Title %>  (<%= Year %>) </h1>
+<% include alerts %>
     <div class="row container-fluid" id="whiteBlock">
             <div class="col-md-12" id="top-row">
                 <% if (Poster != "N/A") { %>
@@ -23,7 +20,7 @@
                             <li><strong>STARRING: </strong><%= Actors %></li>
                             <li><strong>GENRES: </strong><%= Genre %> </li>
 
-                            <li id="rating-circle"><%= parseFloat(imdbRating,10.0) %></li><br>
+                            <li id="rating-circle"><h4><%= parseFloat(imdbRating).toFixed(1) %></h4></li><br>
                             <li id="add-watchlist">
                                 <div class="addWatch">
                                     <button class="btn btn-default btn-lg" type="submit" value="Add To Watchlist" a href="#" data-code="<%= imdbID %>" data-title="<%= Title %>" data-year="<%= Year %>">Add to Watchlist</button>

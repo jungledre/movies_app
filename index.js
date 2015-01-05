@@ -37,6 +37,11 @@ app.get('/', function(req, res){
     res.render('home');
 });
 
+// ABOUT
+app.get('/about', function(req, res){
+    res.render('about')
+});
+
 // SEARCH
 app.get('/search/', function(req, res){
     console.log('search get')

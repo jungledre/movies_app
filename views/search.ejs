@@ -1,12 +1,13 @@
 <% include /header %>
 
+
+
+<div class="container">
 <h1>Search Results</h1>
 
 <div id="alerts">
 <% include alerts %>
 </div>
-
-<div class="container">
     <div class="row" id="whiteBlock">
         <div class="col-md-12">
             <% count = 0  %>
@@ -22,7 +23,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-6" id="movie-title">
                         <a href="/movie/<%= Search[i].imdbID %>" style="color: #666;">
                         <ul>
-                            <li><%= Search[i].Title %><br>(<%= Search[i].Year %>)</li>
+                            <li><strong><%= Search[i].Title %></strong><br>(<%= Search[i].Year %>)</li>
                         </ul>
                         </a>
                     </div>

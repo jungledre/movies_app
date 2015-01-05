@@ -1,12 +1,10 @@
 <% include /header %>
 
+<div class="container">
 <h1>Watchlist</h1>
-
 <div id="alerts">
 <% include alerts %>
 </div>
-
-<div class="container">
    <div class="row" id="whiteBlock">
       <div class="col-md-12">
          <% for (var i = 0; i < watchlist.length; i++) { %>
@@ -19,7 +17,7 @@
                      <div class="col-xs-7" id="movie-title">
                         <a href="/movie/<%= watchlist[i].code %>">
                            <ul>
-                              <li><%= watchlist[i].title %><br>(<%= watchlist[i].year %>)</li>
+                              <li><strong><%= watchlist[i].title %></strong><br>(<%= watchlist[i].year %>)</li>
                            </ul>
                         </a>
                      </div>
