@@ -1,7 +1,6 @@
 <% include /header %>
 
 <div class="container">
-<h1 id="title"><%= Title %>  (<%= Year %>) </h1>
 <% include alerts %>
     <div class="row container-fluid" id="whiteBlock">
             <div class="col-md-12" id="top-row">
@@ -19,7 +18,6 @@
                             <li><strong>WRITTEN BY: </strong><%= Writer %></li>
                             <li><strong>STARRING: </strong><%= Actors %></li>
                             <li><strong>GENRES: </strong><%= Genre %> </li>
-
                             <li id="rating-circle"><h4><%= parseFloat(imdbRating).toFixed(1) %></h4></li><br>
                             <li id="add-watchlist">
                                 <div class="addWatch">
