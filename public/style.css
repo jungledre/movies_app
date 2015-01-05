@@ -23,7 +23,7 @@ nav.navbar.navbar-default {
  }
 .navbar-nav>li>a {padding-bottom: 10px!important;}
 
-.navbar-nav>li>a:hover {border-bottom: 5px solid #1E587F!important; }
+.navbar-nav>li>a:hover {border-bottom: 5px solid #1E587F!important;}
 
 .form-control {background-color: #F1F2F3}
 
@@ -83,6 +83,8 @@ a:hover {color: #3498db!important}
 a ul li:hover {color: #3498db!important}
 
 #alerts {margin: 20px 20px 0px 20px}
+
+#homepage-header {padding-bottom: 0px;}
 
 #add-or-delete {
     color: #333;
@@ -216,7 +218,6 @@ div#whiteBlock.row {margin: 0}
 input.btn.btn-primary.center-block {
     background-color: #3498db;
     border-bottom: 5px solid #1E587F;
-    border: #3498db;
  }
 
 #glyphiconWhite {

@@ -54,7 +54,8 @@ $('.addWatch').on('click', function(event){
         code: thisButtonAdd.data('code')
 
     }, function(data){
-        thisButtonAdd.closest('.addWatch').hide('fast', function(){ $('.hiddenAdd').show('fast') })
+        thisButtonAdd.closest('.addWatch').toggle();
+        $('.hiddenAdd').toggle();;
     });
 });
 });
