@@ -9,7 +9,11 @@ $('.deleteWatch').on('click', function(event){
         success:function(result){
             thisDeleteButton.closest('#watchlist-item').slideUp('fast',function() {
                 $(this).remove();
-            });
+                // $('.movie-count').each(function(i){
+                //     $(this).text(i+1)
+                // });
+            })
+
         url:'/watchlist/'
         }
         // beforeSend:function(result){
@@ -21,7 +25,6 @@ $('.deleteWatch').on('click', function(event){
 $('.hiddenAdd').on('click', function(event){
     event.preventDefault();
     var thisDeleteButton = $(this)
-
 
     $.ajax({
         url:'/watchlist/' + data('code'),
@@ -39,14 +42,7 @@ $('.hiddenAdd').on('click', function(event){
 
 $('.addWatch').on('click', function(event){
     event.preventDefault();
-    // var thisCode = $(this).data('code')
     var thisButtonAdd = $(this).find('button');
-
-    console.log({
-        title: thisButtonAdd.data('title'),
-        year: thisButtonAdd.data('year'),
-        code: thisButtonAdd.data('code')
-    });
 
     $.post('/', {
         title: thisButtonAdd.data('title'),
